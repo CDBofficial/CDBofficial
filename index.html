@@ -3,111 +3,169 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My GitHub Project</title>
+  <title>My Webshop</title>
   <style>
     :root {
-      --main-bg: #ffffff;
-      --main-color: #24292e;
-      --accent: #0366d6;
-      --font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      --gradient: linear-gradient(135deg, #9b59b6, #f39c12);
+      --font: 'Segoe UI', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
     }
 
     body {
       margin: 0;
       font-family: var(--font);
-      background-color: var(--main-bg);
-      color: var(--main-color);
-      line-height: 1.6;
+      background-color: #f8f8f8;
+      color: #333;
     }
 
     header {
-      background-color: var(--accent);
+      background: var(--gradient);
       color: white;
-      padding: 1.5rem;
-      text-align: center;
-    }
-
-    header h1 {
-      margin: 0;
-    }
-
-    nav {
-      background: #f6f8fa;
-      text-align: center;
-      padding: 0.8rem;
-    }
-
-    nav a {
-      margin: 0 1rem;
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    main {
       padding: 2rem;
-      max-width: 800px;
-      margin: auto;
+      text-align: center;
     }
 
     section {
-      margin-bottom: 2rem;
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
     }
 
-    footer {
-      text-align: center;
+    .slideshow-container {
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .slide {
+      flex: 0 0 300px;
+      background: #ddd;
+      border-radius: 12px;
       padding: 1rem;
-      background: #f6f8fa;
-      font-size: 0.9rem;
+      text-align: center;
     }
 
-    code {
-      background: #f0f0f0;
-      padding: 0.2rem 0.4rem;
-      border-radius: 4px;
-      font-family: monospace;
+    .gradient-button {
+      background: var(--gradient);
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .gradient-button:hover {
+      opacity: 0.9;
+    }
+
+    .product {
+      background: white;
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .product-button {
+      background: var(--gradient);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 30px;
+      margin-top: 0.5rem;
+      cursor: pointer;
+    }
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: #fff;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-around;
+      padding: 0.5rem 0;
+    }
+
+    .bottom-nav a {
+      text-decoration: none;
+      color: white;
+      background: var(--gradient);
+      padding: 0.6rem 1.2rem;
+      border-radius: 30px;
+      font-weight: bold;
+    }
+
+    @media (max-width: 600px) {
+      .slide {
+        flex: 0 0 80%;
+      }
+
+      .product {
+        padding: 1rem 0.5rem;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>My GitHub Repository</h1>
-    <p>A clean and minimal homepage for your project</p>
+    <h1>My Webshop</h1>
+    <p>Simple, Stylish & Customizable</p>
   </header>
 
-  <nav>
+  <!-- Homepage -->
+  <section id="homepage">
+    <h2>Top Products</h2>
+    <div class="slideshow-container">
+      <div class="slide">Product 1</div>
+      <div class="slide">Product 2</div>
+      <div class="slide">Product 3</div>
+    </div>
+    <a href="#shop" class="gradient-button">View All</a>
+  </section>
+
+  <!-- Shop -->
+  <section id="shop">
+    <h2>Shop</h2>
+    <div class="product">
+      <p><strong>Product A</strong></p>
+      <p>Change Description Here</p>
+      <button class="product-button">View Product</button>
+    </div>
+    <div class="product">
+      <p><strong>Product B</strong></p>
+      <p>Change Description Here</p>
+      <button class="product-button">View Product</button>
+    </div>
+    <div class="product">
+      <p><strong>Product C</strong></p>
+      <p>Change Description Here</p>
+      <button class="product-button">View Product</button>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2>About</h2>
+    <p>Replace/Add Text Here</p>
+  </section>
+
+  <!-- Bottom Navigation -->
+  <div class="bottom-nav">
+    <a href="#homepage">Homepage</a>
+    <a href="#shop">Shop</a>
     <a href="#about">About</a>
-    <a href="#usage">Usage</a>
-    <a href="#license">License</a>
-  </nav>
-
-  <main>
-    <section id="about">
-      <h2>About</h2>
-      <p>This project is hosted on GitHub and uses GitHub Pages to display a project homepage. It’s simple, fast, and customizable.</p>
-    </section>
-
-    <section id="usage">
-      <h2>Usage</h2>
-      <p>To get started, clone the repo:</p>
-      <pre><code>git clone https://github.com/yourusername/your-repo.git</code></pre>
-      <p>Edit the <code>index.html</code> to suit your project.</p>
-    </section>
-
-    <section id="license">
-      <h2>License</h2>
-      <p>This project is licensed under the MIT License.</p>
-    </section>
-  </main>
-
-  <footer>
-    &copy; 2025 Your Name • <a href="https://github.com/yourusername" style="color: var(--accent); text-decoration: none;">GitHub</a>
-  </footer>
+  </div>
 
 </body>
 </html>
