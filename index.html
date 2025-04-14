@@ -43,10 +43,9 @@
     .carousel {
       position: relative;
       width: 100%;
-      height: 200px;
+      height: 250px;
       overflow: hidden;
       border-radius: 12px;
-      background: #ddd;
       margin-bottom: 1rem;
     }
 
@@ -54,7 +53,7 @@
       display: flex;
       width: 300%;
       height: 100%;
-      transition: transform 0.5s ease-in-out;
+      transition: transform 0.8s ease-in-out;
     }
 
     .carousel-item {
@@ -62,7 +61,46 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 1.5rem;
+      padding: 1rem;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      padding: 1rem;
+      width: 90%;
+      max-width: 600px;
+      align-items: center;
+    }
+
+    .product-card img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 12px;
+      background: #ccc;
+    }
+
+    .product-info {
+      flex: 1;
+    }
+
+    .product-info p {
+      margin: 0.3rem 0;
+    }
+
+    .product-button {
+      background: var(--gradient);
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 30px;
+      margin-top: 0.5rem;
+      cursor: pointer;
     }
 
     .gradient-button {
@@ -78,7 +116,8 @@
       display: inline-block;
     }
 
-    .gradient-button:hover {
+    .gradient-button:hover,
+    .product-button:hover {
       opacity: 0.9;
     }
 
@@ -88,16 +127,6 @@
       padding: 1rem;
       margin-bottom: 1rem;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-    }
-
-    .product-button {
-      background: var(--gradient);
-      color: white;
-      padding: 0.6rem 1.2rem;
-      border: none;
-      border-radius: 30px;
-      margin-top: 0.5rem;
-      cursor: pointer;
     }
 
     .bottom-nav {
@@ -123,11 +152,18 @@
 
     @media (max-width: 600px) {
       .carousel {
-        height: 150px;
+        height: auto;
       }
 
-      .carousel-item {
-        font-size: 1.2rem;
+      .product-card {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+      }
+
+      .product-card img {
+        width: 100%;
+        height: 150px;
       }
     }
   </style>
@@ -142,13 +178,43 @@
   <!-- Homepage -->
   <section id="homepage" class="active">
     <h2>Top Products</h2>
+    <p>Edit HomePage Text</p>
+
     <div class="carousel" id="carousel">
       <div class="carousel-slide" id="carousel-slide">
-        <div class="carousel-item">Product 1</div>
-        <div class="carousel-item">Product 2</div>
-        <div class="carousel-item">Product 3</div>
+        <div class="carousel-item">
+          <div class="product-card">
+            <img src="https://via.placeholder.com/100" alt="Product 1">
+            <div class="product-info">
+              <h4>Product 1</h4>
+              <p>Change Description Here</p>
+              <button class="product-button">View Product</button>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="product-card">
+            <img src="https://via.placeholder.com/100" alt="Product 2">
+            <div class="product-info">
+              <h4>Product 2</h4>
+              <p>Change Description Here</p>
+              <button class="product-button">View Product</button>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="product-card">
+            <img src="https://via.placeholder.com/100" alt="Product 3">
+            <div class="product-info">
+              <h4>Product 3</h4>
+              <p>Change Description Here</p>
+              <button class="product-button">View Product</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+
     <a href="#shop" class="gradient-button" onclick="showSection('shop')">View All</a>
   </section>
 
@@ -189,13 +255,11 @@
     // Section toggle logic
     function showSection(sectionId) {
       const sections = document.querySelectorAll('section');
-      sections.forEach(section => {
-        section.classList.remove('active');
-      });
+      sections.forEach(section => section.classList.remove('active'));
       document.getElementById(sectionId).classList.add('active');
     }
 
-    // Carousel auto-rotation
+    // Carousel auto-rotation (every 6 seconds)
     let currentIndex = 0;
     const slideContainer = document.getElementById('carousel-slide');
     const totalSlides = slideContainer.children.length;
@@ -205,7 +269,7 @@
       slideContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
     }
 
-    setInterval(rotateCarousel, 3000); // rotates every 3 seconds
+    setInterval(rotateCarousel, 6000); // 6 seconds
   </script>
 
 </body>
