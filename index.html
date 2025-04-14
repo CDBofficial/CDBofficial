@@ -90,7 +90,7 @@
 
     .carousel-track {
       display: flex;
-      transition: transform 1.6s ease-in-out;
+      transition: transform 4s ease-in-out; /* Slower movement */
     }
 
     .carousel-item {
@@ -145,6 +145,22 @@
       margin: 1rem 0;
     }
 
+    .round-button {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: lightgray;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .round-button img {
+      width: 24px;
+      height: 24px;
+    }
+
     @media (max-width: 768px) {
       body {
         flex-direction: column;
@@ -180,42 +196,22 @@
     <!-- Home Section -->
     <section id="home" class="active">
       <h1>Home</h1>
-      <p>Edit HomePage Text</p>
-      <div class="carousel" id="carousel">
-        <div class="carousel-track" id="carousel-track">
-          <div class="carousel-item">
-            <div class="product-card">
-              <img src="https://via.placeholder.com/100" alt="Product 1">
-              <div class="product-info">
-                <h3>Heavy Background [PC]</h3>
-                <p>A Simple but fun Background for your PC</p>
-                <button class="gradient-button">View Product</button>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="product-card">
-              <img src="https://via.placeholder.com/100" alt="Product 2">
-              <div class="product-info">
-                <h3>Heavy Background [Mobile]</h3>
-                <p>A Simple but fun Background for your Mobile Device</p>
-                <button class="gradient-button">View Product</button>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="product-card">
-              <img src="https://via.placeholder.com/100" alt="Product 3">
-              <div class="product-info">
-                <h3>Product 3</h3>
-                <p>Change Description Here</p>
-                <button class="gradient-button">View Product</button>
-              </div>
-            </div>
-          </div>
+      <div class="product-box">
+        <h3>Welcome</h3>
+        <p>Here you can get to know me and get some cool/Free Stuff to use!</p>
+      </div>
+      <div class="product-box">
+        <h3>Connections</h3>
+        <p style="color: lightgray;">I'm Active in these platforms:</p>
+        <div style="display: flex; gap: 1rem;">
+          <a href="https://discord.com" target="_blank" class="round-button">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Discord_logo_2023.svg" alt="Discord" />
+          </a>
+          <a href="https://www.youtube.com" target="_blank" class="round-button">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a3/YouTube_logo_2015.svg" alt="YouTube" />
+          </a>
         </div>
       </div>
-      <button class="gradient-button" onclick="showSection('shop')">View All</button>
     </section>
 
     <!-- Shop Section -->
@@ -224,32 +220,32 @@
       <div class="product-box">
         <h3>Product A</h3>
         <p>Change Description Here</p>
-        <button class="gradient-button">View Product</button>
+        <a href="https://via.placeholder.com/100" download="product-image.jpg" class="gradient-button">Download</a>
       </div>
       <div class="product-box">
         <h3>Product B</h3>
         <p>Change Description Here</p>
-        <button class="gradient-button">View Product</button>
+        <a href="https://via.placeholder.com/100" download="product-image.jpg" class="gradient-button">Download</a>
       </div>
       <div class="product-box">
         <h3>Product C</h3>
         <p>Change Description Here</p>
-        <button class="gradient-button">View Product</button>
+        <a href="https://via.placeholder.com/100" download="product-image.jpg" class="gradient-button">Download</a>
       </div>
       <div class="product-box">
         <h3>Product D</h3>
         <p>Description for Product D</p>
-        <button class="gradient-button">View Product</button>
+        <a href="https://via.placeholder.com/100" download="product-image.jpg" class="gradient-button">Download</a>
       </div>
       <div class="product-box">
         <h3>Product E</h3>
         <p>Description for Product E</p>
-        <button class="gradient-button">View Product</button>
+        <a href="https://via.placeholder.com/100" download="product-image.jpg" class="gradient-button">Download</a>
       </div>
       <div class="product-box">
         <h3>Product F</h3>
         <p>Description for Product F</p>
-        <button class="gradient-button">View Product</button>
+        <a href="https://via.placeholder.com/100" download="product-image.jpg" class="gradient-button">Download</a>
       </div>
     </section>
 
@@ -262,7 +258,7 @@
         </div>
         <div class="product-box" style="flex: 2; min-width: 250px;">
           <h3>About</h3>
-          <p> I'm a chill person but can be annoying When I'm Busy. If you need a bot DM me and/or join the CDB Discord Server.</p>
+          <p>I'm a chill person but can be annoying when I'm busy. If you need a bot, DM me and/or join the CDB Discord Server.</p>
         </div>
       </div>
       <div class="product-box" style="margin-top: 1rem;">
@@ -270,8 +266,13 @@
         <p>I'm the owner of a Discord bot creation service called CDB (cdbofficial) & I have a YouTube channel.</p>
       </div>
       <div class="product-box">
-        <h3>Extra</h3>
-        <p>EXTRA DESC</p>
+        <h3>Projects</h3>
+       ```html
+      <div class="product-box">
+        <h3>Projects</h3>
+        <p>Click below to view my projects</p>
+        <a href="https://discord.gg/3uCG7KPVDT" class="gradient-button" target="_blank">CDBOfficial</a>
+        <a href="https://bloxd.io" class="gradient-button" target="_blank">Bloxd.Server</a>
       </div>
     </section>
   </main>
@@ -291,7 +292,7 @@
       carouselTrack.style.transform = `translateX(-${carouselIndex * 100}%)`;
     }
 
-    setInterval(rotateCarousel, 6000);
+    setInterval(rotateCarousel, 8000); // Slower scrolling time
   </script>
 </body>
 </html>
