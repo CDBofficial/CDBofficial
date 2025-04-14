@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>LCVWGaming</title>
+  <title>My Webshop</title>
   <style>
     :root {
       --gradient: linear-gradient(135deg, #9b59b6, #f39c12);
@@ -15,38 +15,40 @@
       scroll-behavior: smooth;
     }
 
-    body {
+    body, html {
       margin: 0;
       font-family: var(--font);
-      background-color: #f8f8f8;
+      background: #f0f0f0;
       color: #333;
-    }
-
-    header {
-      background: var(--gradient);
-      color: white;
-      padding: 2rem;
-      text-align: center;
     }
 
     section {
       display: none;
+      height: 100vh;
       padding: 2rem;
-      max-width: 1000px;
-      margin: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
     }
 
     section.active {
-      display: block;
+      display: flex;
+    }
+
+    h1, h2 {
+      margin: 0.5rem 0;
     }
 
     .carousel {
-      position: relative;
       width: 100%;
-      height: 250px;
+      max-width: 700px;
+      height: 280px;
       overflow: hidden;
-      border-radius: 12px;
-      margin-bottom: 1rem;
+      border-radius: 16px;
+      margin-bottom: 2rem;
+      position: relative;
     }
 
     .carousel-slide {
@@ -61,13 +63,12 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 1rem;
     }
 
     .product-card {
       background: white;
       border-radius: 16px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
       display: flex;
       flex-direction: row;
       gap: 1rem;
@@ -87,10 +88,15 @@
 
     .product-info {
       flex: 1;
+      text-align: left;
+    }
+
+    .product-info h4 {
+      margin: 0;
     }
 
     .product-info p {
-      margin: 0.3rem 0;
+      margin: 0.5rem 0;
     }
 
     .product-button {
@@ -103,88 +109,93 @@
       cursor: pointer;
     }
 
-    .gradient-button {
-      background: var(--gradient);
-      color: white;
-      padding: 0.8rem 1.5rem;
-      border: none;
-      border-radius: 30px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-    }
-
-    .gradient-button:hover,
     .product-button:hover {
       opacity: 0.9;
     }
 
-    .product {
-      background: white;
-      border-radius: 12px;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    .gradient-button {
+      background: var(--gradient);
+      color: white;
+      padding: 0.7rem 1.5rem;
+      border-radius: 30px;
+      border: none;
+      text-decoration: none;
+      font-size: 1rem;
+      margin-top: 1rem;
+      display: inline-block;
     }
 
     .bottom-nav {
       position: fixed;
       bottom: 0;
+      left: 0;
       width: 100%;
-      background: #fff;
-      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+      background: white;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
       display: flex;
       justify-content: space-around;
-      padding: 0.5rem 0;
+      padding: 0.8rem 0;
       z-index: 999;
     }
 
     .bottom-nav a {
-      text-decoration: none;
-      color: white;
       background: var(--gradient);
+      color: white;
       padding: 0.6rem 1.2rem;
       border-radius: 30px;
+      text-decoration: none;
       font-weight: bold;
     }
 
-    @media (max-width: 600px) {
-      .carousel {
-        height: auto;
-      }
+    .product {
+      background: white;
+      padding: 1rem;
+      margin: 1rem auto;
+      max-width: 600px;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
 
+    .product button {
+      background: var(--gradient);
+      color: white;
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      margin-top: 0.5rem;
+    }
+
+    @media (max-width: 600px) {
       .product-card {
         flex-direction: column;
         align-items: flex-start;
-        padding: 1rem;
       }
 
       .product-card img {
         width: 100%;
-        height: 150px;
+        height: auto;
+      }
+
+      .product-info {
+        text-align: center;
+        width: 100%;
       }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>My Webshop</h1>
-    <p>Simple, Stylish & Customizable</p>
-  </header>
-
   <!-- Homepage -->
   <section id="homepage" class="active">
-    <h2>Top Products</h2>
+    <h1>Welcome to My Shop</h1>
     <p>Edit HomePage Text</p>
 
     <div class="carousel" id="carousel">
       <div class="carousel-slide" id="carousel-slide">
         <div class="carousel-item">
           <div class="product-card">
-            <img src="https://via.placeholder.com/100" alt="Product 1">
+            <img src="https://via.placeholder.com/100" alt="Product 1" />
             <div class="product-info">
               <h4>Product 1</h4>
               <p>Change Description Here</p>
@@ -194,7 +205,7 @@
         </div>
         <div class="carousel-item">
           <div class="product-card">
-            <img src="https://via.placeholder.com/100" alt="Product 2">
+            <img src="https://via.placeholder.com/100" alt="Product 2" />
             <div class="product-info">
               <h4>Product 2</h4>
               <p>Change Description Here</p>
@@ -204,7 +215,7 @@
         </div>
         <div class="carousel-item">
           <div class="product-card">
-            <img src="https://via.placeholder.com/100" alt="Product 3">
+            <img src="https://via.placeholder.com/100" alt="Product 3" />
             <div class="product-info">
               <h4>Product 3</h4>
               <p>Change Description Here</p>
@@ -215,7 +226,7 @@
       </div>
     </div>
 
-    <a href="#shop" class="gradient-button" onclick="showSection('shop')">View All</a>
+    <a class="gradient-button" href="#shop" onclick="showSection('shop')">View All</a>
   </section>
 
   <!-- Shop -->
@@ -224,17 +235,17 @@
     <div class="product">
       <p><strong>Product A</strong></p>
       <p>Change Description Here</p>
-      <button class="product-button">View Product</button>
+      <button>View Product</button>
     </div>
     <div class="product">
       <p><strong>Product B</strong></p>
       <p>Change Description Here</p>
-      <button class="product-button">View Product</button>
+      <button>View Product</button>
     </div>
     <div class="product">
       <p><strong>Product C</strong></p>
       <p>Change Description Here</p>
-      <button class="product-button">View Product</button>
+      <button>View Product</button>
     </div>
   </section>
 
@@ -252,16 +263,16 @@
   </div>
 
   <script>
-    // Section toggle logic
+    // Section Switching
     function showSection(sectionId) {
-      const sections = document.querySelectorAll('section');
-      sections.forEach(section => section.classList.remove('active'));
-      document.getElementById(sectionId).classList.add('active');
+      const sections = document.querySelectorAll("section");
+      sections.forEach(section => section.classList.remove("active"));
+      document.getElementById(sectionId).classList.add("active");
     }
 
-    // Carousel auto-rotation (every 6 seconds)
+    // Carousel Rotation
     let currentIndex = 0;
-    const slideContainer = document.getElementById('carousel-slide');
+    const slideContainer = document.getElementById("carousel-slide");
     const totalSlides = slideContainer.children.length;
 
     function rotateCarousel() {
@@ -269,7 +280,7 @@
       slideContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
     }
 
-    setInterval(rotateCarousel, 6000); // 6 seconds
+    setInterval(rotateCarousel, 6000); // every 6 seconds
   </script>
 
 </body>
