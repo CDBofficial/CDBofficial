@@ -30,24 +30,39 @@
     }
 
     section {
+      display: none;
       padding: 2rem;
       max-width: 1000px;
       margin: auto;
     }
 
-    .slideshow-container {
-      display: flex;
-      overflow-x: auto;
-      gap: 1rem;
+    section.active {
+      display: block;
+    }
+
+    .carousel {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      border-radius: 12px;
+      background: #ddd;
       margin-bottom: 1rem;
     }
 
-    .slide {
-      flex: 0 0 300px;
-      background: #ddd;
-      border-radius: 12px;
-      padding: 1rem;
-      text-align: center;
+    .carousel-slide {
+      display: flex;
+      width: 300%;
+      height: 100%;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-item {
+      flex: 0 0 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
     }
 
     .gradient-button {
@@ -94,6 +109,7 @@
       display: flex;
       justify-content: space-around;
       padding: 0.5rem 0;
+      z-index: 999;
     }
 
     .bottom-nav a {
@@ -106,12 +122,12 @@
     }
 
     @media (max-width: 600px) {
-      .slide {
-        flex: 0 0 80%;
+      .carousel {
+        height: 150px;
       }
 
-      .product {
-        padding: 1rem 0.5rem;
+      .carousel-item {
+        font-size: 1.2rem;
       }
     }
   </style>
@@ -124,14 +140,16 @@
   </header>
 
   <!-- Homepage -->
-  <section id="homepage">
+  <section id="homepage" class="active">
     <h2>Top Products</h2>
-    <div class="slideshow-container">
-      <div class="slide">Product 1</div>
-      <div class="slide">Product 2</div>
-      <div class="slide">Product 3</div>
+    <div class="carousel" id="carousel">
+      <div class="carousel-slide" id="carousel-slide">
+        <div class="carousel-item">Product 1</div>
+        <div class="carousel-item">Product 2</div>
+        <div class="carousel-item">Product 3</div>
+      </div>
     </div>
-    <a href="#shop" class="gradient-button">View All</a>
+    <a href="#shop" class="gradient-button" onclick="showSection('shop')">View All</a>
   </section>
 
   <!-- Shop -->
@@ -162,10 +180,33 @@
 
   <!-- Bottom Navigation -->
   <div class="bottom-nav">
-    <a href="#homepage">Homepage</a>
-    <a href="#shop">Shop</a>
-    <a href="#about">About</a>
+    <a href="#homepage" onclick="showSection('homepage')">Homepage</a>
+    <a href="#shop" onclick="showSection('shop')">Shop</a>
+    <a href="#about" onclick="showSection('about')">About</a>
   </div>
+
+  <script>
+    // Section toggle logic
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('section');
+      sections.forEach(section => {
+        section.classList.remove('active');
+      });
+      document.getElementById(sectionId).classList.add('active');
+    }
+
+    // Carousel auto-rotation
+    let currentIndex = 0;
+    const slideContainer = document.getElementById('carousel-slide');
+    const totalSlides = slideContainer.children.length;
+
+    function rotateCarousel() {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      slideContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    setInterval(rotateCarousel, 3000); // rotates every 3 seconds
+  </script>
 
 </body>
 </html>
