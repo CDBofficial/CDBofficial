@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My GitHub Project</title>
+  <style>
+    :root {
+      --main-bg: #ffffff;
+      --main-color: #24292e;
+      --accent: #0366d6;
+      --font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background-color: var(--main-bg);
+      color: var(--main-color);
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: var(--accent);
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    nav {
+      background: #f6f8fa;
+      text-align: center;
+      padding: 0.8rem;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #f6f8fa;
+      font-size: 0.9rem;
+    }
+
+    code {
+      background: #f0f0f0;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>My GitHub Repository</h1>
+    <p>A clean and minimal homepage for your project</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#usage">Usage</a>
+    <a href="#license">License</a>
+  </nav>
+
+  <main>
+    <section id="about">
+      <h2>About</h2>
+      <p>This project is hosted on GitHub and uses GitHub Pages to display a project homepage. It’s simple, fast, and customizable.</p>
+    </section>
+
+    <section id="usage">
+      <h2>Usage</h2>
+      <p>To get started, clone the repo:</p>
+      <pre><code>git clone https://github.com/yourusername/your-repo.git</code></pre>
+      <p>Edit the <code>index.html</code> to suit your project.</p>
+    </section>
+
+    <section id="license">
+      <h2>License</h2>
+      <p>This project is licensed under the MIT License.</p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Your Name • <a href="https://github.com/yourusername" style="color: var(--accent); text-decoration: none;">GitHub</a>
+  </footer>
+
+</body>
+</html>
