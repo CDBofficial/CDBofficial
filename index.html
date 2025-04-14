@@ -27,7 +27,6 @@
       overflow: hidden;
     }
 
-    /* Sidebar Nav */
     nav {
       width: 220px;
       background: #151515;
@@ -63,7 +62,6 @@
       opacity: 0.85;
     }
 
-    /* Main Content */
     main {
       flex: 1;
       padding: 2rem;
@@ -92,7 +90,7 @@
 
     .carousel-track {
       display: flex;
-      transition: transform 0.8s ease-in-out;
+      transition: transform 1.6s ease-in-out;
     }
 
     .carousel-item {
@@ -189,7 +187,7 @@
             <div class="product-card">
               <img src="https://via.placeholder.com/100" alt="Product 1">
               <div class="product-info">
-                <h3>Heavy Background [PC] </h3>
+                <h3>Heavy Background [PC]</h3>
                 <p>A Simple but fun Background for your PC</p>
                 <button class="gradient-button">View Product</button>
               </div>
@@ -199,7 +197,7 @@
             <div class="product-card">
               <img src="https://via.placeholder.com/100" alt="Product 2">
               <div class="product-info">
-                <h3>Heavy Background [Mobile] </h3>
+                <h3>Heavy Background [Mobile]</h3>
                 <p>A Simple but fun Background for your Mobile Device</p>
                 <button class="gradient-button">View Product</button>
               </div>
@@ -238,23 +236,52 @@
         <p>Change Description Here</p>
         <button class="gradient-button">View Product</button>
       </div>
+      <div class="product-box">
+        <h3>Product D</h3>
+        <p>Description for Product D</p>
+        <button class="gradient-button">View Product</button>
+      </div>
+      <div class="product-box">
+        <h3>Product E</h3>
+        <p>Description for Product E</p>
+        <button class="gradient-button">View Product</button>
+      </div>
+      <div class="product-box">
+        <h3>Product F</h3>
+        <p>Description for Product F</p>
+        <button class="gradient-button">View Product</button>
+      </div>
     </section>
 
     <!-- About Section -->
     <section id="about">
       <h1>About</h1>
-      <p>Replace/Add Text Here</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: flex-start;">
+        <div class="product-box" style="flex: 1; max-width: 120px; align-self: flex-start; margin-left: auto;">
+          <img src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Discord PFP" style="width: 100%; border-radius: 50%;">
+        </div>
+        <div class="product-box" style="flex: 2; min-width: 250px;">
+          <h3>About</h3>
+          <p>Change DESC Here</p>
+        </div>
+      </div>
+      <div class="product-box" style="margin-top: 1rem;">
+        <h3>Info</h3>
+        <p>INFO DESC</p>
+      </div>
+      <div class="product-box">
+        <h3>Extra</h3>
+        <p>EXTRA DESC</p>
+      </div>
     </section>
   </main>
 
   <script>
-    // Section navigation
     function showSection(id) {
       document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
       document.getElementById(id).classList.add("active");
     }
 
-    // Carousel rotation
     let carouselIndex = 0;
     const carouselTrack = document.getElementById("carousel-track");
     const totalItems = carouselTrack.children.length;
